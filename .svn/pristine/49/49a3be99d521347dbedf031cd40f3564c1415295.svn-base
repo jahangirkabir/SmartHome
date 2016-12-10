@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="E:\JK\Dropbox\WORKSPACES\NGM Workspace\ASProjects\SmartHome\app\build\intermediates\exploded-aar\com.thalmic\myosdk\0.10.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d189db75174a41996c33bb243d2228aacf10fa53">
+        <dex dex="E:\JK\Dropbox\WORKSPACES\NGM Workspace\ASProjects\SmartHome\app\build\intermediates\pre-dexed\debug\classes-f59dab79f6ef7c11e123b0ecbb23e357feb6ae18.jar" />
+    </item>
+    <item
+        jar="E:\JK&apos;s Softs\SmartHome\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="E:\JK&apos;s Softs\SmartHome\app\build\intermediates\pre-dexed\debug\classes-98a0a58eb7d8e2ab5683be444afdffe6639532e6.jar" />
+    </item>
+    <item
+        jar="E:\JK\Dropbox\WORKSPACES\NGM Workspace\ASProjects\SmartHome\app\build\intermediates\exploded-aar\com.thalmic\myosdk\0.10.0\libs\native-libs.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d24ac9790966ffbd1bd9d921a262572c94903027">
+        <dex dex="E:\JK\Dropbox\WORKSPACES\NGM Workspace\ASProjects\SmartHome\app\build\intermediates\pre-dexed\debug\native-libs-43c355a3bba47868dcfc956c5e03fcde0074b3fd.jar" />
+    </item>
+    <item
+        jar="C:\Users\maruf\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
+        <dex dex="E:\JK\Dropbox\WORKSPACES\NGM Workspace\ASProjects\SmartHome\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-94e0633261a678a796a541195faec5f16216d6cf.jar" />
+    </item>
+    <item
+        jar="E:\JK\Dropbox\WORKSPACES\NGM Workspace\ASProjects\SmartHome\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="E:\JK\Dropbox\WORKSPACES\NGM Workspace\ASProjects\SmartHome\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-59de871d798716129403d5da1c8da15ca4102f2b.jar" />
+    </item>
+    <item
+        jar="E:\JK\Dropbox\WORKSPACES\NGM Workspace\ASProjects\SmartHome\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="E:\JK\Dropbox\WORKSPACES\NGM Workspace\ASProjects\SmartHome\app\build\intermediates\pre-dexed\debug\classes-321483245643ce7908b628e96b2fa53dcd01452c.jar" />
+    </item>
+    <item
+        jar="E:\JK&apos;s Softs\SmartHome\app\build\intermediates\exploded-aar\com.thalmic\myosdk\0.10.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d189db75174a41996c33bb243d2228aacf10fa53">
+        <dex dex="E:\JK&apos;s Softs\SmartHome\app\build\intermediates\pre-dexed\debug\classes-8855cb47fe52ae424cbcf3b4a7fc134da2383bb2.jar" />
+    </item>
+    <item
+        jar="E:\JK&apos;s Softs\SmartHome\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="E:\JK&apos;s Softs\SmartHome\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-177a5032a7b8dffe66810ea85083cc80fab44313.jar" />
+    </item>
+    <item
+        jar="E:\JK\Dropbox\WORKSPACES\NGM Workspace\ASProjects\SmartHome\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="E:\JK\Dropbox\WORKSPACES\NGM Workspace\ASProjects\SmartHome\app\build\intermediates\pre-dexed\debug\classes-d5439c331271fc8a0f1d7f7d58c8506b954fc87e.jar" />
+    </item>
+    <item
+        jar="E:\JK\Dropbox\WORKSPACES\NGM Workspace\ASProjects\SmartHome\app\build\intermediates\exploded-aar\SmartHome\LifxLibrary\unspecified\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="eee4a7310622a70a6d93be388239ffd5667c0485">
+        <dex dex="E:\JK\Dropbox\WORKSPACES\NGM Workspace\ASProjects\SmartHome\app\build\intermediates\pre-dexed\debug\classes-e472210ac32eadf77eb16fc743db9d39224c66bc.jar" />
+    </item>
+    <item
+        jar="E:\JK&apos;s Softs\SmartHome\app\build\intermediates\exploded-aar\com.thalmic\myosdk\0.10.0\libs\native-libs.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d24ac9790966ffbd1bd9d921a262572c94903027">
+        <dex dex="E:\JK&apos;s Softs\SmartHome\app\build\intermediates\pre-dexed\debug\native-libs-3c8a0383abca3acab6c326ac68a0056aeb89ee5c.jar" />
+    </item>
+    <item
+        jar="E:\JK&apos;s Softs\SmartHome\app\build\intermediates\exploded-aar\SmartHome\LifxLibrary\unspecified\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="f5b9379ebd557a03a423f8f0e8f3b7618cd41dfd">
+        <dex dex="E:\JK&apos;s Softs\SmartHome\app\build\intermediates\pre-dexed\debug\classes-4f39e0f8b7f9f8015e7766788e191897e6c81f75.jar" />
+    </item>
+    <item
+        jar="E:\JK&apos;s Softs\SmartHome\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="E:\JK&apos;s Softs\SmartHome\app\build\intermediates\pre-dexed\debug\classes-669b48fd2b6724f3e9a30f4d07a0f139fc3dbc0c.jar" />
+    </item>
+
+</items>

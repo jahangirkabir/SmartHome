@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="E:\JK\Dropbox\WORKSPACES\NGM Workspace\ASProjects\SmartHome\libs\LifxLibrary\res"><file name="ic_launcher" path="E:\JK\Dropbox\WORKSPACES\NGM Workspace\ASProjects\SmartHome\libs\LifxLibrary\res\drawable-hdpi\ic_launcher.png" qualifiers="hdpi-v4" type="drawable"/><file name="ic_launcher" path="E:\JK\Dropbox\WORKSPACES\NGM Workspace\ASProjects\SmartHome\libs\LifxLibrary\res\drawable-mdpi\ic_launcher.png" qualifiers="mdpi-v4" type="drawable"/><file name="ic_launcher" path="E:\JK\Dropbox\WORKSPACES\NGM Workspace\ASProjects\SmartHome\libs\LifxLibrary\res\drawable-xhdpi\ic_launcher.png" qualifiers="xhdpi-v4" type="drawable"/><file path="E:\JK\Dropbox\WORKSPACES\NGM Workspace\ASProjects\SmartHome\libs\LifxLibrary\res\values\strings.xml" qualifiers=""><string name="app_name">LIFX_SDK</string></file><file path="E:\JK\Dropbox\WORKSPACES\NGM Workspace\ASProjects\SmartHome\libs\LifxLibrary\res\values\styles.xml" qualifiers=""><style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style><style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style></file><file path="E:\JK\Dropbox\WORKSPACES\NGM Workspace\ASProjects\SmartHome\libs\LifxLibrary\res\values-v11\styles.xml" qualifiers="v11"><style name="AppBaseTheme" parent="android:Theme.Holo.Light">
+        <!-- API 11 theme customizations can go here. -->
+    </style></file><file path="E:\JK\Dropbox\WORKSPACES\NGM Workspace\ASProjects\SmartHome\libs\LifxLibrary\res\values-v14\styles.xml" qualifiers="v14"><style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <!-- API 14 theme customizations can go here. -->
+    </style></file></source><source path="E:\JK\Dropbox\WORKSPACES\NGM Workspace\ASProjects\SmartHome\libs\LifxLibrary\build\generated\res\rs\release"/><source path="E:\JK\Dropbox\WORKSPACES\NGM Workspace\ASProjects\SmartHome\libs\LifxLibrary\build\generated\res\generated\release"/></dataSet><dataSet config="release"><source path="E:\JK\Dropbox\WORKSPACES\NGM Workspace\ASProjects\SmartHome\libs\LifxLibrary\src\release\res"/></dataSet><mergedItems/></merger>

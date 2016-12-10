@@ -1,0 +1,24 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="actionBarStyle">@style/MyActionBar</item>
+        <!--<item name="seekBarStyle">@style/CustomSeekBar</item>-->
+    </style>
+
+
+    <!-- ActionBar styles -->
+    <style name="MyActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@drawable/action_bar_bg</item>
+        <!-- Support library compatibility -->
+        <item name="background">@drawable/action_bar_bg</item>
+    </style>
+
+    <style name="CustomSeekBar" parent="android:Widget.SeekBar">
+        <item name="android:progressDrawable">@drawable/custom_seek_bar</item>
+        <item name="android:thumb">@drawable/seek_bar_thumb</item>
+        <item name="android:thumbOffset">0dip</item>
+    </style>
+
+</resources>

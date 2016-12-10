@@ -1,0 +1,47 @@
+package com.jahanbabu.smarthome.Model;
+
+/**
+ * Created by Kabir on 3/10/2015.
+ */
+public class Room {
+    String roomId, roomName, roomIcon;
+
+    public Room(String roomId, String roomName, String roomIcon) {
+        this.roomId = roomId;
+        this.roomName = roomName;
+        this.roomIcon = roomIcon;
+    }
+
+    public Room() {
+
+    }
+
+    public String getRoomId() {
+        return roomId;
+    }
+
+    public void setRoomId(String roomId) {
+        this.roomId = roomId;
+    }
+
+    public String getRoomName() {
+        return roomName;
+    }
+
+    public void setRoomName(String roomName) {
+        this.roomName = roomName;
+    }
+
+    public String getRoomIcon() {
+        return roomIcon;
+    }
+
+    public void setRoomIcon(String roomIcon) {
+        this.roomIcon = roomIcon;
+    }
+
+    @Override
+    public String toString() {
+        return roomName;
+    }
+}

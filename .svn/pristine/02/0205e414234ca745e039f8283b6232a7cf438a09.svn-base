@@ -1,0 +1,241 @@
+package com.jahanbabu.smarthome;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
+import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.jahanbabu.smarthome.Model.Room;
+import com.jahanbabu.smarthome.db.DatabaseAdapter;
+
+import java.lang.reflect.Field;
+
+public class MainActivity extends ActionBarActivity {
+    Button allDeviceButton;
+    Context context;
+    GridView gridView;
+    public static MainActivity mMainActivity;
+    DatabaseAdapter dbAdapter;
+    SharedPreferences sharedPref;
+    boolean firstRun = true;
+
+    public static Activity getActivity() {
+        return mMainActivity;
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        context = this;
+        mMainActivity = this;
+        dbAdapter = new DatabaseAdapter(context);
+
+        allDeviceButton = (Button)findViewById(R.id.allDeviceButton);
+        gridView = (GridView)findViewById(R.id.gridView);
+
+        sharedPref = context.getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+        firstRun = sharedPref.getBoolean("firstRun", true);
+
+        if (firstRun){
+            if (dbAdapter.insertRoom("Bed Room","bed_room") > 0) {
+                Log.i("Added Ssuccessfull ", " <<< Bed Room");
+            } else {
+                Log.i("Added Unsuccessfull ", " <<< Bed Room");
+            }
+
+            if (dbAdapter.insertRoom("Dining Room","dining_room") > 0) {
+                Log.i("Added Ssuccessfull ", " <<< Dining Room");
+            } else {
+                Log.i("Added Unsuccessfull ", " <<< Dining Room");
+            }
+
+            if (dbAdapter.insertRoom("Living Room","drawing_room") > 0) {
+                Log.i("Added Ssuccessfull ", " <<< Living Room");
+            } else {
+                Log.i("Added Unsuccessfull ", " <<< Living Room");
+            }
+
+            SharedPreferences.Editor editor = sharedPref.edit();
+            editor.putBoolean("firstRun", false);
+            editor.commit();
+        }
+
+        AppConstant.rooms = dbAdapter.getAllRoomsData();
+        AppConstant.rooms.add(new Room("x","Add Room","add_button"));
+        RoomGridAdapter roomGridAdapter = new RoomGridAdapter(context);
+        gridView.setAdapter(roomGridAdapter);
+
+        allDeviceButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AppConstant.room = "All Devices";
+                startActivity(new Intent(context, AllDevicesActivity.class));
+            }
+        });
+
+    }
+
+    private class RoomGridAdapter extends ArrayAdapter<Room> {
+        Context context;
+
+        RoomGridAdapter(Context context) {
+            super(context, R.layout.room_item, AppConstant.rooms);
+            this.context = context;
+//            Log.e("ROOMS :  ", ": " + AppConstant.rooms);
+        }
+
+        private class ViewHolder {
+            TextView titleNameTextView;
+            ImageView iconImageView;
+        }
+
+        @Override
+        public View getView(final int position, View convertView, ViewGroup parent) {
+            final ViewHolder holder;
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+            if (convertView == null) {
+                convertView = inflater.inflate(R.layout.room_item, null);
+                holder = new ViewHolder();
+                holder.iconImageView = (ImageView) convertView.findViewById(R.id.iconImageView);
+                holder.titleNameTextView = (TextView) convertView.findViewById(R.id.titleTextView);
+                convertView.setTag(holder);
+            } else {
+                holder = (ViewHolder) convertView.getTag();
+            }
+
+            if (position < AppConstant.rooms.size()) {
+                final Room query = AppConstant.rooms.elementAt(position);
+                holder.titleNameTextView.setText("" + query.getRoomName());
+                holder.iconImageView.setImageResource(getResourceId(query.getRoomIcon()));
+//                try {
+//                    Picasso.with(con)
+//                            .load(BaseURL.HTTP + query.getImage())
+//                            .placeholder(R.drawable.ic_launcher)
+//                            .error(R.drawable.ic_launcher)
+//                            .into(holder.iconImageView);
+//                } catch (final Exception e) {
+//                    e.printStackTrace();
+//                }
+
+                convertView.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        Log.e("data ", ": " + query.getRoomName() + query.getRoomId() + query.getRoomIcon());
+                        if (query.getRoomId().equalsIgnoreCase("x")){
+//                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+//                            LayoutInflater inflater = getActivity().getLayoutInflater();
+//                            View view = inflater.inflate(R.layout.add_room_view, null);
+//                            builder.setView(view);
+//                            EditText titleEditText = (EditText) view.findViewById(R.id.titleEditText);
+//                            EditText dateEditText = (EditText) view.findViewById(R.id.dateEditText);
+//                            Spinner folderSpinner = (Spinner) view.findViewById(R.id.folderSpinner);
+//                            titleEditText.setText(cPhoto.getTitle());
+//                            dateEditText.setText(cPhoto.getDate());
+//                            folders = dbAdapter.getAllPhotoFolder();
+//                            ArrayAdapter spinnerAdapter = new ArrayAdapter(context, android.R.layout.simple_spinner_item, folders);
+//                            spinnerAdapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
+//                            folderSpinner.setAdapter(spinnerAdapter);
+//                            folderSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//
+//                                @Override
+//                                public void onItemSelected(AdapterView<?> arg0, View arg1, int pos, long arg3) {
+//                                    AppConstant.photoFolderId = folders.get(pos).getId();
+//						            Toast.makeText(context, folders.get(pos).getId(), Toast.LENGTH_SHORT).show();
+//                                }
+//
+//                                @Override
+//                                public void onNothingSelected(AdapterView<?> arg0) {
+//                                    // TODO Auto-generated method stub
+//
+//                                }
+//                            });
+//                            int p = 0;
+//                            for (int i = 0; i < folders.size(); i++) {
+//                                if (folders.get(i).getId().equalsIgnoreCase(cPhoto.getId())) {
+//                                    p = i;
+//                                    break;
+//                                }
+//                            }
+//                            folderSpinner.setSelection(p);
+//                            // Add action buttons
+////                            builder.setPositiveButton("Done",
+////                                    new DialogInterface.OnClickListener() {
+////                                        @Override
+////                                        public void onClick(DialogInterface dialog, int id) {
+////                                            dialog.dismiss();
+////                                        }
+////                                    }).setNegativeButton("Cancel",
+////                                    new DialogInterface.OnClickListener() {
+////                                        public void onClick(DialogInterface dialog, int id) {
+////                                            dialog.dismiss();
+////                                        }
+////                                    });
+//                            builder.show();
+                        } else {
+
+                        }
+                    }
+                });
+            }
+            return convertView;
+
+        }
+    }
+
+    public int getResourceId(String pVariableName)
+    {
+        try {
+            return context.getResources().getIdentifier(pVariableName, "drawable", context.getPackageName());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+}

@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
+
+    <item
+        android:id="@+id/action_myo"
+        app:showAsAction="always"
+        android:icon="@mipmap/myo_yellow_ic"
+        android:title="@string/status"
+        />
+    <item
+        android:id="@+id/action_statistics"
+        app:showAsAction="always"
+        android:icon="@android:drawable/ic_menu_info_details"
+        android:title="@string/statistics"
+        />
+</menu>

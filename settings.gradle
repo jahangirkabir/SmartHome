@@ -1,0 +1,4 @@
+include ':app',':LifxLibrary',':MyoSdk',':hellocharts-library',':EazeGraphLibrary'
+project(':LifxLibrary').projectDir = new File('libs/LifxLibrary')
+project(':hellocharts-library').projectDir = new File('libs/hellocharts-library')
+project(':EazeGraphLibrary').projectDir = new File('libs/EazeGraphLibrary')

@@ -1,0 +1,165 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:background="#CCCCCC">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:id="@+id/linearLayout"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <ToggleButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custome_switch"
+                android:button="@null"
+                android:textOn=""
+                android:textOff=""
+                android:id="@+id/lightSwitch"
+                android:checked="false"
+                android:gravity="center|fill" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ON"
+                android:id="@+id/powerTextView"
+                android:layout_marginLeft="10dp"
+                android:textSize="22dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="#FFFFFF"
+            android:padding="10dp"
+            android:layout_marginTop="30dp"
+            android:id="@+id/brightnessLayout">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Brightness"
+                android:id="@+id/textView"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:id="@+id/imageView3"
+                    android:src="@mipmap/ic_small_brightness"
+                    android:layout_gravity="center_vertical" />
+
+                <SeekBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/seekBar"
+                    style="@style/CustomSeekBar"
+                    android:indeterminate="false"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:id="@+id/imageView4"
+                    android:src="@mipmap/ic_large_brightness" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="#FFFFFF"
+            android:padding="10dp"
+            android:layout_marginTop="25dp"
+            android:id="@+id/hueLayout">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Hue"
+                android:textStyle="bold" />
+
+            <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/colorSeekBar"
+                style="@style/CustomSeekBar"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:layout_marginTop="15dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/therapyTextView"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
+            android:textSize="26dp"
+            android:textColor="#ff3b923b" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.thalmic.android.sample.helloworld.HelloWorldActivity"
+        tools:ignore="MergeRootFrame"
+        android:layout_weight="1.97"
+        android:layout_below="@+id/linearLayout">
+
+        <TextView
+            android:id="@+id/lock_state"
+            android:text="Locked"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="top|center_horizontal"
+            tools:ignore="SpUsage"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true" />
+
+        <ImageView
+            android:id="@+id/indicatorImageview"
+            android:src="@drawable/hand_finger_spread"
+            android:layout_width="300dp"
+            android:layout_height="180dp"
+            android:layout_gravity="center"
+            tools:ignore="SpUsage"
+            android:layout_centerInParent="true" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

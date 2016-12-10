@@ -1,0 +1,185 @@
+package com.jahanbabu.smarthome;
+
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.net.wifi.WifiManager;
+import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.jahanbabu.smarthome.Model.Room;
+
+import java.util.ArrayList;
+
+import lifx.java.android.client.LFXClient;
+import lifx.java.android.entities.LFXTypes;
+import lifx.java.android.light.LFXLight;
+import lifx.java.android.light.LFXTaggedLightCollection;
+import lifx.java.android.network_context.LFXNetworkContext;
+
+
+public class RoomDevicesActivity extends ActionBarActivity implements LFXNetworkContext.LFXNetworkContextListener{
+    Button button,button2,button3,button4;
+    Context context;
+    ActionBar actionBar;
+    ProgressDialog pd;
+    LFXNetworkContext localNetworkContext;
+    private WifiManager.MulticastLock ml = null;
+    ListView deviceListView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_alldevice);
+        context = this;
+        actionBar = getSupportActionBar();
+        actionBar.setTitle(AppConstant.room);
+        actionBar.setHomeButtonEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
+        WifiManager wifi;
+        wifi = (WifiManager) getSystemService( Context.WIFI_SERVICE);
+        ml = wifi.createMulticastLock( "lifx_samples_tag");
+        ml.acquire();
+
+        localNetworkContext = LFXClient.getSharedInstance(context).getLocalNetworkContext();
+        localNetworkContext.connect();
+        localNetworkContext.addNetworkContextListener( this);
+        pd = ProgressDialog.show(context, "", "Searching LIFx Devices.....", false,true);
+
+        deviceListView = (ListView) findViewById(R.id.deviceListView);
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void updateStateFromLIFX()
+
+    {
+        ArrayList<LFXLight> allLights = localNetworkContext.getAllLightsCollection().getLights();
+        for (int i = 0; allLights.size() < i; i++){
+
+        }
+        DevicesListAdapter devicesListAdapter = new DevicesListAdapter(context, allLights);
+        deviceListView.setAdapter(devicesListAdapter);
+    }
+    @Override
+    public void networkContextDidConnect(LFXNetworkContext networkContext) {
+        pd.dismiss();
+        updateStateFromLIFX();
+    }
+
+    @Override
+    public void networkContextDidDisconnect(LFXNetworkContext networkContext) {
+
+    }
+
+    @Override
+    public void networkContextDidAddTaggedLightCollection(LFXNetworkContext networkContext, LFXTaggedLightCollection collection) {
+
+    }
+
+    @Override
+    public void networkContextDidRemoveTaggedLightCollection(LFXNetworkContext networkContext, LFXTaggedLightCollection collection) {
+
+    }
+
+    private class DevicesListAdapter extends ArrayAdapter<LFXLight> {
+        Context context;
+        ArrayList<LFXLight> allLights;
+
+        DevicesListAdapter(Context context, ArrayList<LFXLight> allLights) {
+            super(context, R.layout.device_item, allLights);
+            this.context = context;
+            this.allLights = allLights;
+//            Log.e("ROOMS :  ", ": " + AppConstant.rooms);
+        }
+
+        private class ViewHolder {
+            TextView titleNameTextView;
+            ImageView iconImageView;
+        }
+
+        @Override
+        public View getView(final int position, View convertView, ViewGroup parent) {
+            final ViewHolder holder;
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+            if (convertView == null) {
+                convertView = inflater.inflate(R.layout.device_item, null);
+                holder = new ViewHolder();
+                holder.iconImageView = (ImageView) convertView.findViewById(R.id.iconImageView);
+                holder.titleNameTextView = (TextView) convertView.findViewById(R.id.titleTextView);
+                convertView.setTag(holder);
+            } else {
+                holder = (ViewHolder) convertView.getTag();
+            }
+
+            if (position < AppConstant.rooms.size()) {
+                final LFXLight query = allLights.get(position);
+                holder.titleNameTextView.setText("LIFX Bulb " + query.getDeviceID().substring(6));
+//                holder.iconImageView.setImageResource(getResourceId(query.getRoomIcon()));
+//                try {
+//                    Picasso.with(con)
+//                            .load(BaseURL.HTTP + query.getImage())
+//                            .placeholder(R.drawable.ic_launcher)
+//                            .error(R.drawable.ic_launcher)
+//                            .into(holder.iconImageView);
+//                } catch (final Exception e) {
+//                    e.printStackTrace();
+//                }
+
+                convertView.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        Log.e("D ID ", " " + query.getDeviceID());
+//                        if (query.getDeviceID().equalsIgnoreCase("x")){
+//                        } else {
+//                        }
+                        AppConstant.device = "LIFX Bulb " + query.getDeviceID().substring(6);
+                        localNetworkContext.removeAllNetworkContextListeners();
+                        localNetworkContext.removeNetworkContextListener(RoomDevicesActivity.this);
+                        AppConstant.cLifx = query;
+                        startActivity(new Intent(context, LifxDetailsActivity.class));
+                    }
+                });
+            }
+            return convertView;
+
+        }
+    }
+}

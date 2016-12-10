@@ -1,0 +1,2 @@
+include ':app',':LifxLibrary',':MyoSdk'
+project(':LifxLibrary').projectDir = new File('libs/LifxLibrary')
